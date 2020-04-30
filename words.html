@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>dejavuwing</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon_32.png" />
+		<link rel="icon" type="image/png" sizes="196x196" href="/favicon_196.png" />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+		<style type="text/css">
+			*{padding:0; margin:0;}
+			.float_next{
+				position:fixed;
+				width:50px;
+				height:50px;
+				bottom:10px;
+				right:10px;
+				background-color:#0C9;
+				color:#FFF;
+				border-radius:50px;
+				text-align:center;
+				box-shadow: 2px 2px 3px #999;
+			}
+			.float_home{
+				position:fixed;
+				width:50px;
+				height:50px;
+				bottom:10px;
+				left:10px;
+				background-color:#7B68EE;
+				color:#FFF;
+				border-radius:50px;
+				text-align:center;
+				box-shadow: 2px 2px 3px #999;
+			}
+			.my-float{ margin-top:18px; }
+			.my-iframe { display:block; border:none; height:100vh; width:100vw; }
+		</style>
+		<script language='JavaScript' type='text/javascript'>
+			// 2020-03-17 (93 ~ 3534)
+			var articles = [541,573,574,575,576,577,578,579,580,581,737,738,739,740,741,742,743,744,745,746,747,748,749,750,751,752,915,916,917,918,919,920,921,922,923,924,925,926,927,928,929,965,966,967,968,969,970,971,972,973,974,975,976,977,978,979,1096,1097,1098,1099,1100,1101,1102,1103,1104,1105,1106,1107,1108,1109,1110,1111,1112,1113,1114,1146,1147,1148,1149,1150,1151,1152,1153,1154,1155,1156,1157,1158,1159,1160,1161,1162,1163,1164,1246,1247,1248,1249,1250,1251,1252,1253,1254,1255,1256,1257,1258,1259,1260,1261,1262,1263,1264,1414,1415,1416,1417,1418,1419,1420,1421,1422,1423,1424,1425,1426,1427,1428,1429,1430,1431,1432,1464,1465,1466,1467,1468,1469,1545,1546,1547,1548,1549,1550,1551,1552,1553,1554,1555,1556,1557,1626,1627,1628,1629,1676,1677,1678,1679,1680,1681,1682,1683,1684,1685,1686,1687,1688,1762,1763,1764,1765,1766,1809,1810,1811,1812,1813,1814,1815,1816,1817,1818,1819,1820,1935,1936,1937,1938,1939,1940,1941,1942,1943,1944,1945,1946,1947,1985,1986,1987,1988,1989,1990,1991,1992,1993,1994,1995,1996,2034,2035,2036,2037,2038,2039,2040,2041,2042,2043,2044,2045,2046,2115,2116,2117,2118,2119,2120,2121,2122,2123,2124,2125,2126,2127,2128,2129,2163,2164,2165,2166,2167,2168,2169,2170,2171,2172,2173,2174,2175,2176,2177,2250,2251,2252,2253,2366,2367,2368,2369,2370,2400,2401,2402,2403,2404,2405,2406,2407,2408,2409,2410,2463,2464,2465,2466,2467,2468,2469,2470,2471,2472,2473,2474,2475,2512,2513,2514,2515,2516,2517,2518,2519,2520,2521,2522,2523,2524,2525,2563,2564,2565,2566,2567,2568,2569,2570,2612,2613,2614,2615,2616,2617,2618,2619,2620,2621,2662,2663,2664,2665,2666,2667,2668,2752,2753,2754,2755,2756,2757,2758,2759,2791,2792,2793,2794,2795,2841,2842,2843,2844,2845,2846,2847,2848,2849,2850,2851,2852,2853,2854,2855,2856,2894,2895,2896,2897,2898,2899,2900,2901];
+
+			function shuffle(o){
+				o.sort(function(){return 0.5-Math.random()});
+				return o;
+			};
+
+			articles = shuffle(articles);
+
+			function newSite(){
+				if (articles <= 0) {
+					alert('준비된 post를 모두 보셨습니다.');
+				} else {
+					var baseurl = 'https://dejavuwing.tistory.com/';
+					var number = articles[Math.floor(Math.random() * articles.length)];
+					document.getElementById('myIframe').src = baseurl + number;
+					articles = articles.filter(function(e) { return e !== number });
+				}
+			}
+
+			function goHome(){
+				location.href = 'http://keepitup.kr';
+			}
+		</script>
+	</head>
+	<body>
+		<iframe width="100%" height="600" id="myIframe" src="https://dejavuwing.tistory.com/category/Words" class="my-iframe" frameborder="0" ></iframe>
+		<a href="#" class="float_home" onClick="goHome()"><i class="fa fa-home my-float"></i></a>
+		<a href="#" class="float_next" onClick="newSite()"><i class="fa fa-refresh my-float"></i></a>
+	</body>
+</html>
