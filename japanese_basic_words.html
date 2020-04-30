@@ -52,6 +52,7 @@
 				} else {
 					var baseurl = 'https://dejavuwing.tistory.com/';
 					var number = articles[Math.floor(Math.random() * articles.length)];
+					alert(number);
 					document.getElementById('myIframe').src = baseurl + number;
 					articles = articles.filter(function(e) { return e !== number });
 				}
