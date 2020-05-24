@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>dejavuwing</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon_32.png" />
+		<link rel="icon" type="image/png" sizes="196x196" href="/favicon_196.png" />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+		<style type="text/css">
+			*{padding:0; margin:0;}
+			.float_next{
+				position:fixed;
+				width:50px;
+				height:50px;
+				bottom:10px;
+				right:10px;
+				background-color:#0C9;
+				color:#FFF;
+				border-radius:50px;
+				text-align:center;
+				box-shadow: 2px 2px 3px #999;
+			}
+			.float_home{
+				position:fixed;
+				width:50px;
+				height:50px;
+				bottom:10px;
+				left:10px;
+				background-color:#7B68EE;
+				color:#FFF;
+				border-radius:50px;
+				text-align:center;
+				box-shadow: 2px 2px 3px #999;
+			}
+			.my-float{ margin-top:18px; }
+			.my-iframe { display:block; border:none; height:100vh; width:100vw; }
+		</style>
+		<script language='JavaScript' type='text/javascript'>
+			// 2020-04-30
+			var articles = [6425];
+
+			function shuffle(o){
+				o.sort(function(){return 0.5-Math.random()});
+				return o;
+			};
+
+			articles = shuffle(articles);
+
+			function newSite(){
+				if (articles <= 0) {
+					alert('준비된 post를 모두 보셨습니다.');
+				} else {
+					var baseurl = 'https://dejavuwing.tistory.com/';
+					var number = articles[Math.floor(Math.random() * articles.length)];
+					document.getElementById('myIframe').src = baseurl + number;
+					articles = articles.filter(function(e) { return e !== number });
+				}
+			}
+
+			function goHome(){
+				location.href = 'http://keepitup.kr';
+			}
+		</script>
+	</head>
+	<body>
+		<iframe width="100%" height="600" id="myIframe" src="https://dejavuwing.tistory.com/category/Japanese%20Dialogues" class="my-iframe" frameborder="0" ></iframe>
+		<a href="#" class="float_home" onClick="goHome()"><i class="fa fa-home my-float"></i></a>
+		<a href="#" class="float_next" onClick="newSite()"><i class="fa fa-refresh my-float"></i></a>
+	</body>
+</html>
